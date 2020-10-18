@@ -13,8 +13,8 @@ on:
 jobs:
   build:
     env:
-      YOUTH_READ: ${{ secrets.YOUTH_READ }}
       YOUTH_READ1: ${{ secrets.YOUTH_READ1 }}
+      YOUTH_READ2: ${{ secrets.YOUTH_READ2 }}
       YOUTH_READ3: ${{ secrets.YOUTH_READ3 }}
       YOUTH_READ4: ${{ secrets.YOUTH_READ4 }}
       YOUTH_READ5: ${{ secrets.YOUTH_READ5 }}
@@ -32,18 +32,18 @@ jobs:
           npm install
                  
       - name: '运行 【中青看点账号1-文章阅读1-54篇】'
-        if: env.YOUTH_READ         
-        run: |
-          node Task/Youth_Read.js
-        env:
-          YOUTH_READ: ${{ secrets.YOUTH_READ }}
-
-      - name: '运行 【中青看点账号1-文章阅读2-54篇】'
-        if: env.YOUTH_READ1
+        if: env.YOUTH_READ1         
         run: |
           node Task/Youth_Read.js
         env:
           YOUTH_READ: ${{ secrets.YOUTH_READ1 }}
+
+      - name: '运行 【中青看点账号1-文章阅读2-54篇】'
+        if: env.YOUTH_READ2
+        run: |
+          node Task/Youth_Read.js
+        env:
+          YOUTH_READ: ${{ secrets.YOUTH_READ2 }}
       - name: '运行 【中青看点账号1-文章阅读3-35篇】'
         if: env.YOUTH_READ3
         run: |
